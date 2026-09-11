@@ -173,51 +173,51 @@
       Results below are <strong>directional on this sample</strong> under a fixed seed (42).
       Tree-ensemble numbers can shift slightly across library versions; the stable claim is lift over the hand baseline and base rate, not a third decimal.
     </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>Precision@20</th>
-          <th>Precision@50</th>
-          <th>Precision@100</th>
-          <th>Test base rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Base rate (random)</td>
-          <td>~0.54</td>
-          <td>~0.54</td>
-          <td>~0.54</td>
-          <td>~0.54</td>
-        </tr>
-        <tr>
-          <td>Hand baseline</td>
-          <td>—</td>
-          <td>~0.24–0.40*</td>
-          <td>—</td>
-          <td>~0.54</td>
-        </tr>
-        <tr>
-          <td>Logistic Regression</td>
-          <td>see notebook</td>
-          <td>see notebook</td>
-          <td>see notebook</td>
-          <td>~0.54</td>
-        </tr>
-        <tr>
-          <td>Random Forest</td>
-          <td>see notebook</td>
-          <td>see notebook</td>
-          <td>see notebook</td>
-          <td>~0.54</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="muted">
-      *Exact cells are produced live in <code>work/notebooks/capstone.ipynb</code> and <code>w05_model.ipynb</code>.
-      On the reference pipeline sample, the shipped random forest has historically landed near ~0.68–0.74 Precision@50 vs ~0.24 for the hand rule (~3× lift). Re-run the notebook for your environment’s numbers and paste them into this table before sharing widely.
-    </p>
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Precision@20</th>
+      <th>Precision@50</th>
+      <th>Precision@100</th>
+      <th>Test base rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Base rate (random)</td>
+      <td>0.52</td>
+      <td>0.52</td>
+      <td>0.52</td>
+      <td>0.524</td>
+    </tr>
+    <tr>
+      <td>Hand baseline</td>
+      <td>0.30</td>
+      <td>0.42</td>
+      <td>0.50</td>
+      <td>0.524</td>
+    </tr>
+    <tr>
+      <td>Logistic Regression</td>
+      <td>0.60</td>
+      <td>0.54</td>
+      <td>0.52</td>
+      <td>0.524</td>
+    </tr>
+    <tr>
+      <td>Random Forest</td>
+      <td>0.70</td>
+      <td>0.64</td>
+      <td>0.68</td>
+      <td>0.524</td>
+    </tr>
+  </tbody>
+</table>
+<p class="muted">
+  Client-holdout test set, seed 42. Random Forest reaches Precision@50 = 0.64 vs hand baseline 0.42
+  (~1.5×) and vs base rate 0.52. Numbers are directional on this sample.
+</p>
     <p>
       <strong>Error sketch:</strong> false positives in the top ranks often look “important” (high volume or aging) but are stable or up.
       The model over-weights review-worthiness and cannot use pure trend as a feature without leaking the label—by design.
